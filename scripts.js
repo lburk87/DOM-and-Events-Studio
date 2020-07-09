@@ -11,7 +11,7 @@ let upButton = document.getElementById("up");
 let downButton = document.getElementById("down");
 let leftButton = document.getElementById("left");
 let rightButton = document.getElementById("right");
-document.getElementById("rocket").style = "position: absolute";
+document.getElementById("rocket").style = "position: relative";
 
 function init () {
    
@@ -49,6 +49,18 @@ function init () {
 
     downButton.addEventListener("click", function() {
         let positionString = rocket.style.top;
+        let position = positionString.slice(0, positionString.length - 2);
+        rocket.style.top = Number(position) - 10 + "px";
+    });
+
+    leftButton.addEventListener("click", function() {
+        let positionString = rocket.style.left;
+        let position = positionString.slice(0, positionString.length - 2);
+        rocket.style.top = Number(position) + 10 + "px";
+    });
+
+    rightButton.addEventListener("click", function() {
+        let positionString = rocket.style.right;
         let position = positionString.slice(0, positionString.length - 2);
         rocket.style.top = Number(position) - 10 + "px";
     });
